@@ -52,8 +52,7 @@
 		<div class="row">
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="{{asset('images/img-1.jpg')}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="{{asset('images/img-1.jpg')}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>Parisu</h2>
 						<span class="icon">
@@ -64,8 +63,7 @@
 			</div>
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="images/img-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>New York</h2>
 						<span class="icon">
@@ -76,8 +74,7 @@
 			</div>
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="images/img-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>London</h2>
 						<span class="icon">
@@ -90,8 +87,7 @@
 
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="images/img-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>Amsterdam</h2>
 						<span class="icon">
@@ -102,8 +98,7 @@
 			</div>
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="images/img-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>Australia</h2>
 						<span class="icon">
@@ -114,8 +109,7 @@
 			</div>
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="images/img-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
+					<img src="images/img-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>Japan</h2>
 						<span class="icon">
@@ -162,10 +156,8 @@
 				</ul>
 			</div>
 			<div class="col-md-6 fh5co-testimonial">
-				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-					class="img-responsive mb20">
-				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-					class="img-responsive">
+				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive mb20">
+				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 			</div>
 		</div>
 	</div>
