@@ -24,6 +24,9 @@
 	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 	<link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
+	<!-- Add glyphicon -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="{{ asset('css/animate.css') }}">

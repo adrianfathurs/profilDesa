@@ -1,7 +1,7 @@
 @extends('template/header')
 @section('content')
 <!-- banner area -->
-<div class="banner">
+<div>
 	<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
@@ -13,7 +13,8 @@
 						<!-- heading -->
 						<h2 class="animated fadeInLeftBig"> Melodi For You!</h2>
 						<!-- paragraph -->
-						<h3 class="animated fadeInRightBig">Find More Innovative &amp; Creative Music Albums.</h3>
+						<h3 class="animated fadeInRightBig">Find More Innovative &amp; Creative Music Albums.
+						</h3>
 						<!-- button -->
 						<a href="#" class="animated fadeIn btn btn-theme">Download Here</a>
 					</div>
@@ -37,10 +38,12 @@
 
 		<!-- Controls -->
 		<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-			<i class="far fa-arrow-alt-circle-left"></i>
+			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+			<span class="sr-only">Previous</span>
 		</a>
 		<a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-			<i class="far fa-arrow-alt-circle-right">
+			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+			<span class="sr-only">Next</span>
 		</a>
 	</div>
 </div>
@@ -56,7 +59,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>Parisu</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
@@ -67,7 +70,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>New York</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
@@ -78,7 +81,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>London</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
@@ -91,7 +94,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>Amsterdam</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
@@ -102,7 +105,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>Australia</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
@@ -113,7 +116,7 @@
 					<div class="fh5co-listing-copy">
 						<h2>Japan</h2>
 						<span class="icon">
-							<i class="icon-chevron-right"></i>
+							<i class="glyphicon glyphicon-arrow-right"></i>
 						</span>
 					</div>
 				</a>
