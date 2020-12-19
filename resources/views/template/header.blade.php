@@ -38,9 +38,7 @@
 	<link rel="stylesheet" href="{{ asset('/css/superfish.css') }}">
 
 	<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-		integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
-		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
 	<!-- Styles -->
 	<!-- Bootstrap CSS -->
@@ -77,21 +75,18 @@
 									<li class="active">
 										<a href="index.html">Home</a>
 									</li>
+									<li class="">
+										<a href="index.html">About</a>
+									</li>
 									<li>
 										<a href="#" class="fh5co-sub-down sf-with-ul">Listing</a>
 										<ul class="fh5co-sub-menu ">
-											<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template"
-													target="_blank">Build</a></li>
-											<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap"
-													target="_blank">Work</a></li>
-											<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap"
-													target="_blank">Light</a></li>
-											<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap"
-													target="_blank">Relic</a></li>
-											<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap"
-													target="_blank">Display</a></li>
-											<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap"
-													target="_blank">Sprint</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap" target="_blank">Work</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap" target="_blank">Light</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap" target="_blank">Relic</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
+											<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
 										</ul>
 									</li>
 									<li>
@@ -102,18 +97,12 @@
 											<li>
 												<a href="#" class="fh5co-sub-ddown">Free HTML5</a>
 												<ul class="fh5co-sub-menu">
-													<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template"
-															target="_blank">Build</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap"
-															target="_blank">Work</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap"
-															target="_blank">Light</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap"
-															target="_blank">Relic</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap"
-															target="_blank">Display</a></li>
-													<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap"
-															target="_blank">Sprint</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template" target="_blank">Build</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap" target="_blank">Work</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap" target="_blank">Light</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap" target="_blank">Relic</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap" target="_blank">Display</a></li>
+													<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap" target="_blank">Sprint</a></li>
 												</ul>
 											</li>
 											<li><a href="#">UI Animation</a></li>
