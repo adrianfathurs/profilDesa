@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('content/homePage');
 });
+
+Route::get('/about', function () {
+    return view('content/aboutPage');
+});
