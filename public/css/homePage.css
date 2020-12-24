@@ -1,0 +1,27 @@
+.float-right{
+    float: right;
+}
+.cls{
+    clear: both;
+}
+.mb-1{
+  margin-bottom: 10px;
+}
+
+.modal-body textarea{
+    width:569px;
+    height:391px;
+}
+
+@media(max-width:768px){
+    .modal-body textarea{
+    width: 572px;
+    height: 385px;
+    }
+}
+@media(max-width:361px){
+    .modal-body textarea{
+    width: 305px;
+    height: 290px;
+    }
+}

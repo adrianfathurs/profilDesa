@@ -118,7 +118,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -132,7 +132,7 @@ figure {
 }
 @media screen and (max-width: 768px) {
   .fh5co-cover.fh5co-cover_2 {
-    heifght: inherit;
+    height: inherit;
     padding: 3em 0;
   }
 }
@@ -213,7 +213,7 @@ figure {
   position: relative;
   display: block;
   width: 100%;
-  height: 100%;
+  height: 250px;
   cursor: pointer;
   overflow: hidden;
 }
@@ -748,11 +748,7 @@ figure {
   background: #264E86;
   color: #fff !important;
 }
-.btn:hover, .btn:active, .btn:focus {
-  background: #393e46 !important;
-  color: #fff;
-  outline: none !important;
-}
+
 .btn.btn-default:hover, .btn.btn-default:focus, .btn.btn-default:active {
   border-color: transparent;
 }
@@ -1038,3 +1034,75 @@ figure {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+/*  addding css*/
+.mb-1{
+  margin-bottom: 10px;
+}
+
+#right-content img{
+    width:500px;
+    height:320px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 8%;
+    padding-right: 12%;
+    
+}
+#right-content small{
+    text-align: center;
+}
+#left-content p{
+    text-align: justify;
+    font-size: 18px;
+    color:#fcfcfc;
+    
+}
+.container .mbottom{
+  margin-bottom: 200px;
+}
+.section-wrap{
+  box-sizing: border-box;
+  margin-top: 15px;
+}
+.text-header{
+  font-size: 36px;
+  color: #fcfcfc;
+  font-weight: 15px;
+}
+@media(max-width:509px){
+    #right-content img{
+    width:95vw;
+    height:320px;
+    
+    }
+    .text-header{
+    font-size: 22px;
+    color: #fcfcfc;
+    font-weight: 25px;
+    margin-top:10px;
+    
+    }
+    #left-content p{
+      
+      font-size: 16px;
+    }
+
+    .container .mbottom{
+      margin-bottom: 40px;
+    }
+
+}
+@media(max-width:769px){
+    #right-content img{
+    width:100vw;
+    height:320px;    
+    }
+
+    .container .mbottom{
+      margin-bottom: 150px;
+    }
+}
+
+
