@@ -63,8 +63,7 @@
 			@foreach($dataTourism as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
-						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
+					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>{{ $item->judul }}</h2>
 						<span class="icon">
@@ -86,32 +85,21 @@
 			<div class="col-md-6 fh5co-news">
 				<h3>News</h3>
 				<ul>
+					@foreach($dataTourism as $news)
 					<li>
 						<a href="#">
-							<span class="fh5co-date">Sep. 10, 2016</span>
-							<h3>Newly done Bridge of London</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
+							<span class="fh5co-date">{{ $news->created_at }}</span>
+							<h3>{{ $news->judul }}</h3>
+							<p>{{ $news->description_tourism }}</p>
 						</a>
 					</li>
-					<li>
-						<a href="#">
-							<span class="fh5co-date">Sep. 10, 2016</span>
-							<h3>Newly done Bridge of London</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
-						</a>
-					</li>
-					<li>
-						<a href="#">
-							<span class="fh5co-date">Sep. 10, 2016</span>
-							<h3>Newly done Bridge of London</h3>
-							<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus reprehenderit!</p>
-						</a>
-					</li>
+					@endforeach
 				</ul>
 			</div>
 			<div class="col-md-6 fh5co-testimonial">
-				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive mb20">
-				<img src="images/cover_bg_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
+				@foreach($dataTourism as $news)
+				<img src="{{asset('imgTourism/'.$news->photos1_tourism)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
+				@endforeach
 			</div>
 		</div>
 	</div>
