@@ -10,6 +10,7 @@
 						<li>
 							<a href="/">Home</a>
 						</li>
+						<li><a href="/about">About</a></li>
 						<li><a href="/wisata">Wisata</a></li>
 						<li><a href="/umkm">UMKM</a></li>
 						<li>

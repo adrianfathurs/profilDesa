@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/wisata', 'TourismController@index')->name('/');
+Route::get('/about', 'AboutController@index')->name('/');
 
 Route::get('/contact', function () {
     return view('content/contact');
