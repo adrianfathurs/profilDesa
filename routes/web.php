@@ -31,3 +31,7 @@ Route::get('/', 'HomeController@random')->name('/');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
