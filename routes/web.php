@@ -19,15 +19,11 @@ Route::get('/contact', function () {
     return view('content/contact');
 });
 
+
+Route::get('/', 'HomeController@random')->name('/');
+Auth::routes();
 Route::post('saveTourism', 'TourismController@store')->name('saveTourism');
 Route::post('saveUmkm', 'UmkmController@store')->name('saveUmkm');
-// Route::get('/', 'TourismController@index')->name('/');
-Route::get('/about', 'AboutController@index');
 Route::get('/umkm', 'UmkmController@index')->name('/umkm');
 Route::DELETE('/umkm/deleteUmkm/{id}', 'UmkmController@destroy');
-Route::get('/', 'HomeController@random')->name('/');
-
-
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
