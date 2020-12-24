@@ -56,115 +56,52 @@
 
 <br><br>
 <div class="fh5co-listing">
-	
-	<div class="container">
-<<<<<<< HEAD
-		<div class="row">
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="{{asset('images/img-1.jpg')}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>Parisu</h2>
-						<span class="icon">
-							<i class="glyphicon glyphicon-arrow-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>New York</h2>
-						<span class="icon">
-							<i class="glyphicon glyphicon-arrow-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>London</h2>
-						<span class="icon">
-							<i class="glyphicon glyphicon-arrow-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<!-- END 3 row -->
 
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>Amsterdam</h2>
-						<span class="icon">
-							<i class="glyphicon glyphicon-arrow-right"></i>
-						</span>
-					</div>
-				</a>
-			</div>
-			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
-					<img src="images/img-5.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-					<div class="fh5co-listing-copy">
-						<h2>Australia</h2>
-						<span class="icon">
-							<i class="glyphicon glyphicon-arrow-right"></i>
-						</span>
-=======
+	<div class="container">
 
 		<!-- button Modals, Untuk form modals tambah ada dibawah -->
 		<button type="button" class="btn btn-success float-right mb-1" data-toggle="modal" data-target="#exampleModal">
 			Tambah
 		</button>
-			<!-- Modal form tambah -->
+		<!-- Modal form tambah -->
 		<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
 					</div>
-				<div class="modal-body">
-					<form action="{{ route('saveTourism')}}" method="post" enctype="multipart/form-data">
-					{{csrf_field()}}
-						<div class="mb-3">
-							<label for="recipient-name" class="col-form-label">Judul Informasi:</label>
-							<input type="text" class="form-control" id="judul" name="judul">
-						</div>
-						<div class="mb-3">
-							<label for="recipient-name" class="col-form-label">Gambar 1:</label>
-							<input type="file" class="form-control" id="photos" name="photos1">
-						</div>
-						<div class="mb-3">
-							<label for="message-text" class="col-form-label">Deskripsi:</label>
-							<textarea class="form-control" id="description" name="description"></textarea>
-						</div>
-				</div>
+					<div class="modal-body">
+						<form action="{{ route('saveTourism')}}" method="post" enctype="multipart/form-data">
+							{{csrf_field()}}
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">Judul Informasi:</label>
+								<input type="text" class="form-control" id="judul" name="judul">
+							</div>
+							<div class="mb-3">
+								<label for="recipient-name" class="col-form-label">Gambar 1:</label>
+								<input type="file" class="form-control" id="photos" name="photos1">
+							</div>
+							<div class="mb-3">
+								<label for="message-text" class="col-form-label">Deskripsi:</label>
+								<textarea class="form-control" id="description" name="description"></textarea>
+							</div>
+					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 						<button type="submit" class="btn btn-primary">Submit</button>
 
->>>>>>> master
 					</div>
-				</form>
+					</form>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="cls"></div>
 		<div class="row">
-		@foreach($dataTourism as $item)
+			@foreach($dataTourism as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
 				<a class="fh5co-listing-item">
-<<<<<<< HEAD
-					<img src="images/img-6.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-=======
-					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co"
-						class="img-responsive">
->>>>>>> master
+					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
 						<h2>{{ $item->judul }}</h2>
 						<span class="icon">
