@@ -13,14 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-Route::get('/about', function () {
-    return view('content/aboutPage');
-});
-
-Route::get('/wisata', function () {
-    return view('wisata/index');
-});
+Route::get('/wisata', 'TourismController@index')->name('/');
 
 Route::get('/contact', function () {
     return view('content/contact');
@@ -32,3 +25,9 @@ Route::get('/', 'TourismController@index')->name('/');
 Route::get('/about', 'AboutController@index');
 Route::get('/umkm', 'UmkmController@index')->name('/umkm');
 Route::DELETE('/umkm/deleteUmkm/{id}', 'UmkmController@destroy');
+Route::get('/', 'HomeController@random')->name('/');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

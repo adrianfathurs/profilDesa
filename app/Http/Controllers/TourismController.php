@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tourism;
+
 class TourismController extends Controller
 {
     /**
@@ -13,8 +14,17 @@ class TourismController extends Controller
      */
     public function index()
     {
-         $dataTourism=Tourism::latest()->get();
-         return view('content.homePage',compact('dataTourism'));
+        $dataTourism = Tourism::get();
+        return view('wisata.index', compact('dataTourism'));
+    }
+
+    public function random()
+    {
+        $dataTourism = Tourism::select('*')
+            ->inRandomOrder()
+            ->limit(3)
+            ->get();
+        return compact('dataTourism');
     }
 
     /**
@@ -35,16 +45,16 @@ class TourismController extends Controller
      */
     public function store(Request $request)
     {
-        $nm=$request->photos1;
-        $namaFile=$nm->getClientOriginalName();
-            $dtUpload=new Tourism;
-            $dtUpload->judul=$request->judul;
-            $dtUpload->photos1_tourism=$namaFile;
-            $dtUpload->description_tourism=$request->description;
-            $dtUpload->fk_user_id="1";
-            $nm->move(public_path().'/imgTourism',$namaFile);
-            $dtUpload->save();
-            return redirect()->action([TourismController::class, 'index']);
+        $nm = $request->photos1;
+        $namaFile = $nm->getClientOriginalName();
+        $dtUpload = new Tourism;
+        $dtUpload->judul = $request->judul;
+        $dtUpload->photos1_tourism = $namaFile;
+        $dtUpload->description_tourism = $request->description;
+        $dtUpload->fk_user_id = "1";
+        $nm->move(public_path() . '/imgTourism', $namaFile);
+        $dtUpload->save();
+        return redirect()->action([TourismController::class, 'index']);
     }
 
     /**
