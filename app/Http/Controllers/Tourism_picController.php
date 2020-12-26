@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Tourism;
 use App\Tourism_pic;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Tourism_picController extends Controller
 {
@@ -55,7 +56,7 @@ class Tourism_picController extends Controller
 
         $tourismPic->save();
 
-        //Alert::success('Success', 'Post added');
+        Alert::success('Success', 'Foto Wisata Telah Ditambah');
 
         return redirect()->route('tourism.show', ['tourism' => $tourism_id]);
     }

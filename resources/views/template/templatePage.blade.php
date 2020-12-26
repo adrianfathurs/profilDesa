@@ -66,6 +66,7 @@
 </head>
 
 <body>
+    @include('sweetalert::alert')
     <div id="fh5co-wrapper" style="background-color: black">
         <div id="fh5co-page">
             <!-- Navbar -->

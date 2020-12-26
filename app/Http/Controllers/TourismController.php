@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Tourism;
 use App\Tourism_pic;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class TourismController extends Controller
 {
@@ -59,6 +62,9 @@ class TourismController extends Controller
         $dtUpload->map_api = $request->map_api;
         $nm->move(public_path() . '/imgTourism', $namaFile);
         $dtUpload->save();
+
+        Alert::success('Success', 'Wisata Telah Ditambah');
+
         return redirect()->action([TourismController::class, 'index']);
     }
 
@@ -109,6 +115,8 @@ class TourismController extends Controller
     public function destroy($id)
     {
         Post::destroy($id);
+
+        Alert::success('Success', 'Wisata Telah Dihapus');
 
         return redirect('tourism');
     }

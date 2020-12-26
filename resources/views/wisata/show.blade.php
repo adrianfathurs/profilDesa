@@ -11,7 +11,8 @@
             @if (Auth::check())
             <h4>Tambah Gambar Wisata {{$tourism->judul}}</h4>
             <span>
-                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                    data-target="#exampleModalCenter">
                     Tambah
                 </button>
             </span>
@@ -19,36 +20,7 @@
         </div>
     </div>
     <!-- form modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="margin-top: 45px">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
-                    <h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
-                </div>
-                <div class="modal-body">
-                    <form action="/tourism_pic/{{ $tourism->id_tourism }}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="mb-3">
-                            <label for="title" class="col-form-label">Judul Gambar:</label>
-                            <input type="text" class="form-control" id="title" name="title">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Gambar :</label>
-                            <input type="file" class="form-control" id="pics" name="pics">
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    @include('wisata.picModal')
 </div>
 @else
 <!-- banner area -->
@@ -69,7 +41,7 @@
                         <h4>Tambah Gambar Wisata {{$tourism->judul}}</h4>
                         <span>
                             <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
-                                data-target="#exampleModal">
+                                data-target="#exampleModalCenter">
                                 Tambah
                             </button>
                         </span>
@@ -80,38 +52,7 @@
             @endforeach
         </div>
         <!-- form modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-            style="margin-top: 45px">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                                aria-hidden="true">&times;</span></button>
-                        <h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi
-                        </h3>
-                    </div>
-                    <div class="modal-body">
-                        <form action="/tourism_pic/{{ $tourism->id_tourism }}" method="post"
-                            enctype="multipart/form-data">
-                            {{csrf_field()}}
-                            <div class="mb-3">
-                                <label for="title" class="col-form-label">Judul Gambar:</label>
-                                <input type="text" class="form-control" id="title" name="title">
-                            </div>
-                            <div class="mb-3">
-                                <label for="recipient-name" class="col-form-label">Gambar :</label>
-                                <input type="file" class="form-control" id="pics" name="pics">
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+        @include('wisata.picModal')
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
@@ -145,11 +86,12 @@
                             @if($tourism->map_api == null)
                             <h4> Tidak Ada Preview Map </h4>
                             @else
-                            <iframe class="center" src="{{ $tourism->map_api }}" width="400" height="300"
+                            <iframe class="col-md-12" src="{{ $tourism->map_api }}" width="auto" height="300"
                                 frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false"
                                 tabindex="0"></iframe>
                             @endif
                         </div>
+                        <br>
                         <ul class="stuff">
                             <li>
                                 <a href="https://api.whatsapp.com/send?phone={{ $tourism->contact }}" target="blank">
@@ -200,7 +142,7 @@
                     </div>
                 </a>
             </div>
-            <!-- form modal -->
+            <!-- image modal -->
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
                 style="margin-top: 45px">
                 <div class="modal-dialog">
