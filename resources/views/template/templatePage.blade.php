@@ -138,6 +138,12 @@
         });
     </script>
 
+    {{-- sweetalert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    {{-- SweetAlert Delete Confirmation --}}
+    @stack('deleteConfirm-scripts')
+
 
 </body>
 

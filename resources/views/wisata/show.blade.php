@@ -108,11 +108,15 @@
                             </li>
                             @if (Auth::check())
                             <li>
-                                <form action="{{ route('tourism.destroy', ['tourism' => $tourism->id_tourism]) }}"
+                                <form id="delete-tourism-form"
+                                    action="{{ route('tourism.destroy', ['tourism' => $tourism->id_tourism]) }}"
                                     method="POST">
                                     {{csrf_field()}}
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="submit" class="btn btn-danger" onclick="return false"
+                                        id="delete-tourism">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
                                 </form>
                             </li>
                             @endif
@@ -176,14 +180,24 @@
 
 @endsection
 
+@push('deleteConfirm-scripts')
 <script>
-    $('#imageModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var recipient = button.data('whatever') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
-    modal.find('.modal-title').text('New message to ' + recipient)
-    modal.find('.modal-body input').val(recipient)
-    })
+    $('#delete-tourism').on('click', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        Swal.fire({
+        title: 'Anda yakin menghapus wisata ?',
+        text: "Anda tidak dapat mengembalikan data otomatis !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+        $('#delete-tourism-form').submit();
+        }
+        })
+        });
 </script>
+@endpush

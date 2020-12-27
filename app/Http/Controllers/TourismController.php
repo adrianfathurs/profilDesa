@@ -114,7 +114,7 @@ class TourismController extends Controller
      */
     public function destroy($id)
     {
-        Post::destroy($id);
+        Tourism::destroy($id);
 
         Alert::success('Success', 'Wisata Telah Dihapus');
 
