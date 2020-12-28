@@ -21,6 +21,10 @@ Route::resources([
     'tourism' => 'TourismController',
 ]);
 
+
+Route::resources([
+    'umkm'=>'UmkmController',
+]);
 Route::post('/tourism_pic/{tourism_id}', 'Tourism_picController@store');
 
 Route::get('/umkm', function () {
@@ -30,6 +34,7 @@ Route::get('/umkm', function () {
 Route::get('/contact', function () {
     return view('content/contact');
 });
+
 
 
 Route::post('saveUmkm', 'UmkmController@store')->name('saveUmkm');

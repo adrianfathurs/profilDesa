@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Umkm;
+use App\Umkm_pic;
 class UmkmController extends Controller
 {
     /**
@@ -47,6 +48,7 @@ class UmkmController extends Controller
         $dtUpload->fk_user_id="1";
         $nm->move(public_path().'/imgUmkm',$namaFile);
         $dtUpload->save();
+        Alert::success('Success', 'UMKM Telah Ditambah');
         return redirect()->action([UmkmController::class, 'index']);
     }
 
@@ -58,7 +60,9 @@ class UmkmController extends Controller
      */
     public function show($id)
     {
-        //
+        $umkm=Umkm::find($id);
+        $UmkmPics=Umkm_pic::where('fk_umkm_id','=',$id)->get();
+        return view('umkm.show', compact('umkm','UmkmPics'));
     }
 
     /**

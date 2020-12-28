@@ -103,6 +103,6 @@ class Tourism_picController extends Controller
      */
     public function destroy($id)
     {
-        //
+       
     }
 }

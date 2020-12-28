@@ -22,48 +22,8 @@
             @endif
         </div>
     </div>
-    <!-- form modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="margin-top: 45px">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route('saveUmkm')}}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Judul Informasi:</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Gambar 1:</label>
-                            <input type="file" class="form-control" id="photos" name="photos1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nomor Telp. :</label>
-                            <input type="number" class="form-control" id="nomor_telp" name="nomor_telp">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Url Map :</label>
-                            <input type="text" class="form-control" id="url_map" name="url_map">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Deskripsi:</label>
-                            <textarea class="form-control" id="description" name="description"></textarea>
-                            <p>Tersisa : <span id="jmlKarakter">600</span> Karakter</p>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    <!--  Add modal form -->
+    @include('umkm.addModal')
 </div>
 <!--/ jumbotron end -->
 
@@ -78,21 +38,25 @@
             <div class="col-md-6 mb-4  animate-box">
                 <div id="left-content">
                     <div class="text-content">
-                        <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                        <p>&nbsp;<?php  echo UCWORDS(substr($umkm->description_umkm, 0, 300)) . '...'; ?></p>
                     </div>
-                    <div>
-                        <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank"><button
+                   <div class="row">
+                       <!--  <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank"><button
                                 class="btn btn-info"><i class="fab fa-whatsapp fa-2x"></i></button></a>
                         <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i
-                                    class="fas fa-map-marked fa-2x"></i></button></a>
-                        <!-- Harus diberi keterangan status user apakah merupakan admin atau user biasa-->
-                        @if (Auth::check())
-                        <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
-                            {{csrf_field()}}
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        @endif
+                                    class="fas fa-map-marked fa-2x"></i></button></a> -->
+                        <div class="col-md-3">
+                            <a href="{{ route('umkm.show',['umkm'=>$umkm->id_umkm])}}"><button class="btn btn-outline-warning"> Read More </button></a>
+                        </div>
+                        <div class="col-md-3">
+                            @if (Auth::check())
+                            <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
+                                {{csrf_field()}}
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,20 +75,25 @@
             <div class="col-md-6  animate-box">
                 <div id="left-content">
                     <div class="text-content">
-                        <p>&nbsp;{{ $umkm->description_umkm}}</p>
+                        <p>&nbsp;<?php  echo(substr($umkm->description_umkm, 0, 300)) . '...'; ?></p>
                     </div>
-                    <div>
-                        <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank"><button
+                    <div class="row">
+                       <!--  <a href="https://api.whatsapp.com/send?phone={{ $umkm->nomor_telp }}" target="blank"><button
                                 class="btn btn-info"><i class="fab fa-whatsapp fa-2x"></i></button></a>
                         <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i
-                                    class="fas fa-map-marked fa-2x"></i></button></a>
-                        @if (Auth::check())
-                        <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
-                            {{csrf_field()}}
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                        @endif
+                                    class="fas fa-map-marked fa-2x"></i></button></a> -->
+                        <div class="col-md-3">
+                            <a href="{{ route('umkm.show',['umkm'=>$umkm->id_umkm]) }}"><button class="btn btn-outline-warning"> Read More </button></a>
+                        </div>
+                        <div class="col-md-3">
+                            @if (Auth::check())
+                            <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
+                                {{csrf_field()}}
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>

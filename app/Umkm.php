@@ -16,4 +16,8 @@ class Umkm extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function tourism_pic(){
+        return $this->hasMany('App\Umkm_pic');
+    }
 }
