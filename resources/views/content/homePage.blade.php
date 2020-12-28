@@ -20,7 +20,7 @@
 						<h3 class="animated fadeInRightBig">Jelajahi Lebih Banyak <i class="fas fa-search-location"></i>
 						</h3>
 						<!-- button -->
-						<a href="/wisata" class="animated fadeIn btn btn-theme">Jelajah Wisata</a>
+						<a href="{{ route('tourism.index') }}" class="animated fadeIn btn btn-theme">Jelajah Wisata</a>
 					</div>
 				</div>
 			</div>
@@ -62,7 +62,7 @@
 		<div class="row">
 			@foreach($dataTourism as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
+				<a class="fh5co-listing-item" href="{{ route('tourism.show', ['tourism' => $item->id_tourism]) }}">
 					<img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
 						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">

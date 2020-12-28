@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Tourism;
+use App\Tourism_pic;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class TourismController extends Controller
 {
@@ -51,9 +56,15 @@ class TourismController extends Controller
         $dtUpload->judul = $request->judul;
         $dtUpload->photos1_tourism = $namaFile;
         $dtUpload->description_tourism = $request->description;
-        $dtUpload->fk_user_id = "1";
+        $dtUpload->fk_user_id = Auth::id();
+        $dtUpload->contact = $request->contact;
+        $dtUpload->map_url = $request->map_url;
+        $dtUpload->map_api = $request->map_api;
         $nm->move(public_path() . '/imgTourism', $namaFile);
         $dtUpload->save();
+
+        Alert::success('Success', 'Wisata Telah Ditambah');
+
         return redirect()->action([TourismController::class, 'index']);
     }
 
@@ -65,7 +76,11 @@ class TourismController extends Controller
      */
     public function show($id)
     {
-        //
+        $tourism = Tourism::find($id);
+
+        $TourismPics = Tourism_pic::where('fk_tourism_id', '=', $id)->get();
+
+        return view('wisata.show', compact('tourism', 'TourismPics'));
     }
 
     /**
@@ -99,6 +114,10 @@ class TourismController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Tourism::destroy($id);
+
+        Alert::success('Success', 'Wisata Telah Dihapus');
+
+        return redirect('tourism');
     }
 }

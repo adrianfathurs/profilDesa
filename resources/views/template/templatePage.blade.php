@@ -41,7 +41,9 @@
 
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+        integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
+        crossorigin="anonymous" />
 
     <!-- Styles -->
     <!-- Bootstrap CSS -->
@@ -64,8 +66,9 @@
 </head>
 
 <body>
-    <div id="fh5co-wrapper">
-        <div id="fh5co-page" style="background-color: black">
+    @include('sweetalert::alert')
+    <div id="fh5co-wrapper" style="background-color: black">
+        <div id="fh5co-page">
             <!-- Navbar -->
             @include('template.header')
             <!-- /.navbar -->
@@ -88,7 +91,8 @@
                                     <a href="#"><i class="fab fa-youtube"></i></a>
                                 </p>
                                 <p>Copyright 2016 Free Html5 <a href="#">Listing</a>. All Rights Reserved. <br>Made with
-                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/" target="_blank">Freehtml5.co</a>
+                                    <i class="icon-heart3"></i> by <a href="http://freehtml5.co/"
+                                        target="_blank">Freehtml5.co</a>
                                     / Demo Images: <a href="https://unsplash.com/" target="_blank">Unsplash</a></p>
                             </div>
                         </div>
@@ -133,6 +137,12 @@
             });
         });
     </script>
+
+    {{-- sweetalert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+    {{-- SweetAlert Delete Confirmation --}}
+    @stack('deleteConfirm-scripts')
 
 
 </body>

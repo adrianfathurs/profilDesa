@@ -1,5 +1,5 @@
 <div id="fh5co-header">
-	<nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="fh5co-header-section">
+	<nav class="navbar navbar-expand-lg navbar-dark scrolling-navbar fixed-top" id="fh5co-header-section">
 		<div class="container">
 			<div class="nav-header">
 				<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
@@ -10,37 +10,8 @@
 						<li>
 							<a href="/">Home</a>
 						</li>
-						<li><a href="/wisata">Wisata</a></li>
+						<li><a href="{{ route('tourism.index') }}">Wisata</a></li>
 						<li><a href="/umkm">UMKM</a></li>
-						<li>
-							<a href="#" class="fh5co-sub-ddown sf-with-ul">
-								Joko Fathur <small><i class="glyphicon glyphicon-chevron-down"></i></small>
-							</a>
-							<ul class="fh5co-sub-menu">
-								<li><a href="left-sidebar.html">Web Development</a></li>
-								<li><a href="right-sidebar.html">Branding &amp; Identity</a></li>
-								<li>
-									<a href="#" class="fh5co-sub-ddown">Free HTML5</a>
-									<ul class="fh5co-sub-menu">
-										<li><a href="http://freehtml5.co/preview/?item=build-free-html5-bootstrap-template"
-												target="_blank">Build</a></li>
-										<li><a href="http://freehtml5.co/preview/?item=work-free-html5-template-bootstrap"
-												target="_blank">Work</a></li>
-										<li><a href="http://freehtml5.co/preview/?item=light-free-html5-template-bootstrap"
-												target="_blank">Light</a></li>
-										<li><a href="http://freehtml5.co/preview/?item=relic-free-html5-template-using-bootstrap"
-												target="_blank">Relic</a></li>
-										<li><a href="http://freehtml5.co/preview/?item=display-free-html5-template-using-bootstrap"
-												target="_blank">Display</a></li>
-										<li><a href="http://freehtml5.co/preview/?item=sprint-free-html5-template-bootstrap"
-												target="_blank">Sprint</a></li>
-									</ul>
-								</li>
-								<li><a href="#">UI Animation</a></li>
-								<li><a href="#">Copywriting</a></li>
-								<li><a href="#">Photography</a></li>
-							</ul>
-						</li>
 						<li><a href="/contact">Contact</a></li>
 						@guest
 						<li>
@@ -55,7 +26,7 @@
 						<li>
 							<a id="navbarDropdown" class="fh5co-sub-ddown sf-with-ul" href="#" role="button"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-								{{ Auth::user()->name }}
+								{{ Auth::user()->name }} <small><i class="glyphicon glyphicon-chevron-down"></i></small>
 							</a>
 							<ul class="fh5co-sub-menu">
 								<li>

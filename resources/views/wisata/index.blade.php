@@ -19,48 +19,17 @@
         </div>
     </div>
     <!-- Modal form tambah -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        style="margin-top: 45px">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title text-center" id="exampleModalLabel">Input Informasi</h3>
-                </div>
-                <div class="modal-body">
-                    <form action="{{ route('saveTourism')}}" method="post" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Nama Wisata:</label>
-                            <input type="text" class="form-control" id="judul" name="judul">
-                        </div>
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Gambar Cover:</label>
-                            <input type="file" class="form-control" id="photos" name="photos1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message-text" class="col-form-label">Deskripsi:</label>
-                            <textarea class="form-control" id="description" name="description"></textarea>
-                        </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-
-                </div>
-                </form>
-            </div>
-        </div>
-    </div>
+    @include('wisata.addModal')
 </div>
 <!--/ jumbotron end -->
 
-<div class="fh5co-listing" style="background-color: black">
+<div class="fh5co-listing">
     <div class="container">
         <div class="cls"></div>
         <div class="row">
             @foreach($dataTourism as $item)
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item">
+                <a class="fh5co-listing-item" href="{{ route('tourism.show', ['tourism' => $item->id_tourism]) }}">
                     <img src="{{asset('imgTourism/'.$item->photos1_tourism)}}"
                         alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
                     <div class="fh5co-listing-copy">
@@ -75,6 +44,5 @@
             <!-- END 3 row -->
         </div>
     </div>
-</div>
 </div>
 @endsection

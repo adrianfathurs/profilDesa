@@ -86,11 +86,13 @@
                         <a href="{{ $umkm->url_map }}" target="_blank"><button class="btn btn-info"><i
                                     class="fas fa-map-marked fa-2x"></i></button></a>
                         <!-- Harus diberi keterangan status user apakah merupakan admin atau user biasa-->
+                        @if (Auth::check())
                         <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
                             {{csrf_field()}}
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
+                        @endif
                     </div>
                 </div>
             </div>
