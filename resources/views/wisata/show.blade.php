@@ -133,11 +133,13 @@
     <div class="container">
         <div class="cls"></div>
         <div class="row">
-            @forelse($TourismPics as $item)
+            @forelse($TourismPics as $index=>$item)
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item" data-toggle="modal" data-target="#imageModal">
-                    <img src="{{asset('imgTourism/tourism_pic/'.$item->pics)}}" alt="{{ $item->title }}"
-                        class="img-responsive">
+                <a href="#imageModal" class="fh5co-listing-item openImageDialog" data-toggle="modal"
+                    data-target="#imageModal" data-src="{{asset('imgTourism/tourism_pic/'.$item->pics)}}"
+                    data-title="{{ $item->title }}">
+                    <img id="pic{{$index}}" src="{{asset('imgTourism/tourism_pic/'.$item->pics)}}"
+                        alt="{{ $item->title }}" class="img-responsive">
                     <div class="fh5co-listing-copy">
                         <h2>{{ $item->title }}</h2>
                         <span class="icon">
@@ -147,20 +149,18 @@
                 </a>
             </div>
             <!-- image modal -->
-            <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+            <div id="imageModal" class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
                 style="margin-top: 45px">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                     aria-hidden="true">&times;</span></button>
-                            <h3 class="modal-title text-center" id="exampleModalLabel">{{ $item->title }}
-                            </h3>
+                            <h3 class="text-center" id="exampleModalLabel"> </h3>
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <img src="{{asset('imgTourism/tourism_pic/'.$item->pics)}}" alt="{{ $item->title }}"
-                                    class="img-responsive">
+                                <img class="img-responsive" id="modalImage" src="" alt="">
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -199,5 +199,18 @@
         }
         })
         });
+</script>
+@endpush
+
+@push('image-modal')
+<script>
+    $(document).on("click", ".openImageDialog", function () {
+    var myImageId = $(this).data('src');
+    var myTitle = $(this).data('title');
+    $(".modal-body #modalImage").attr("src", myImageId);
+    document.getElementById("exampleModalLabel").innerHTML = myTitle;
+    // $(".modal-header #exampleModalLabel").innderHTML= myTitle;
+    });
+
 </script>
 @endpush

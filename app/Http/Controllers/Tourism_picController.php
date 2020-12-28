@@ -69,7 +69,9 @@ class Tourism_picController extends Controller
      */
     public function show($id)
     {
-        //
+        $tourismPics = Tourism_pic::find($id);
+
+        return compact('tourismPics');
     }
 
     /**
@@ -103,6 +105,5 @@ class Tourism_picController extends Controller
      */
     public function destroy($id)
     {
-       
     }
 }
