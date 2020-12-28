@@ -23,9 +23,14 @@ Route::resources([
 
 
 Route::resources([
-    'umkm'=>'UmkmController',
+    'umkm' => 'UmkmController',
 ]);
+
 Route::post('/tourism_pic/{tourism_id}', 'Tourism_picController@store');
+Route::get('tourism_pic/{tourism_id}', [
+    'as' => 'tourism_pic',
+    'uses' => 'Tourism_picController@show'
+]);
 
 Route::get('/umkm', function () {
     return view('umkm/index');

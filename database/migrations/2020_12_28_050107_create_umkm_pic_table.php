@@ -18,7 +18,7 @@ class CreateUmkmPicTable extends Migration
             $table->string('title');
             $table->string('pics');
             $table->unsignedBigInteger('fk_umkm_id');
-            $table->foreign('fk_umkm_id')->references('id_umkm')->on('umkms');
+            $table->foreign('fk_umkm_id')->references('id_umkm')->on('umkms')->onDelete('cascade');
             $table->timestamps();
         });
     }

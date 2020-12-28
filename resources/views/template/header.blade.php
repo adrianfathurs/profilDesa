@@ -24,6 +24,9 @@
 						@endif
 						@else
 						<li>
+							<a class="nav-link" href="{{ route('register') }}">Tambah Admin</a>
+						</li>
+						<li>
 							<a id="navbarDropdown" class="fh5co-sub-ddown sf-with-ul" href="#" role="button"
 								data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
 								{{ Auth::user()->name }} <small><i class="glyphicon glyphicon-chevron-down"></i></small>

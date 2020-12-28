@@ -144,6 +144,9 @@
     {{-- SweetAlert Delete Confirmation --}}
     @stack('deleteConfirm-scripts')
 
+    {{-- Dynamic Image Modal --}}
+    @stack('image-modal')
+
 
 </body>
 

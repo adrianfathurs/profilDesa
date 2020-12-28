@@ -19,7 +19,7 @@ class CreateTourismsTable extends Migration
             $table->string('photos1_tourism');
             $table->longText('description_tourism');
             $table->unsignedBigInteger('fk_user_id');
-            $table->foreign('fk_user_id')->references('id')->on('users');
+            $table->foreign('fk_user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }
