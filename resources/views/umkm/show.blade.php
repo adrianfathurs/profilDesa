@@ -22,7 +22,7 @@
         </div>
     </div>
     <!-- form modal -->
-    
+     @include('umkm.picModal')
 </div>
 @else
 <!-- banner area -->
@@ -42,7 +42,7 @@
                         @if (Auth::check())
                         <h4>Tambah Gambar Wisata {{$umkm->judul}}</h4>
                         <span>
-                            <button type="button" class="btn btn-primary btn-lg" data-toggle="modal"
+                            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal"
                                 data-target="#exampleModalCenter">
                                 Tambah
                             </button>
@@ -54,7 +54,7 @@
             @endforeach
         </div>
         <!-- form modal -->
-        @include('wisata.picModal')
+        @include('umkm.picModal')
 
         <!-- Controls -->
         <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
