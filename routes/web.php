@@ -21,10 +21,16 @@ Route::resources([
     'tourism' => 'TourismController',
 ]);
 
-
 Route::resources([
-    'umkm' => 'UmkmController',
+    'umkm'=>'UmkmController',
 ]);
+Route::resources([
+    'umkm_pic'=>'Umkm_picController',
+]);
+
+
+Route::post('/umkm_pic/{umkm_id}', 'Umkm_picController@store');
+Route::DELETE('/umkm/umkm_pic/deletePic/{umkm_id}', 'Umkm_picController@destroy');
 
 Route::post('/tourism_pic/{tourism_id}', 'Tourism_picController@store');
 Route::get('tourism_pic/{tourism_id}', [
@@ -44,7 +50,7 @@ Route::get('/contact', function () {
 
 Route::post('saveUmkm', 'UmkmController@store')->name('saveUmkm');
 Route::get('/umkm', 'UmkmController@index')->name('/umkm');
-Route::DELETE('/umkm/deleteUmkm/{id}', 'UmkmController@destroy');
+
 
 Route::get('/home', 'HomeController@random')->name('home');
 

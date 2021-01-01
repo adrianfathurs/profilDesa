@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Umkm;
 use App\Umkm_pic;
+use RealRashid\SweetAlert\Facades\Alert;
 class UmkmController extends Controller
 {
     /**

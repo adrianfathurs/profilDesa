@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Umkm_pic;
+use App\Umkm;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class Umkm_picController extends Controller
 {
@@ -33,9 +35,30 @@ class Umkm_picController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$umkm_id)
     {
-        //
+        $umkmPic = new Umkm_pic;
+        $umkm = Umkm::find($umkm_id);
+
+        $umkmPic->title = $request['title'];
+        $umkmPic->fk_umkm_id = $umkm_id;
+
+        if ($request->hasFile('pics')) {
+            $file = $request->file('pics');
+            $extension = $file->getClientOriginalExtension();
+            $filename = $umkm->judul . time() . '.' . $extension;
+            $file->move(public_path() . '/imgUmkm/umkm_pic', $filename);
+            $umkmPic->pics = $filename;
+        } else {
+            /* return $request; */
+            $umkmPic->pics = '';
+        }
+
+        $umkmPic->save();
+
+        Alert::success('Success', 'Foto Wisata Telah Ditambah');
+
+        return redirect()->route('umkm.show', ['umkm' => $umkm_id]);
     }
 
     /**
@@ -78,8 +101,15 @@ class Umkm_picController extends Controller
      * @param  \App\Umkm_pic  $umkm_pic
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Umkm_pic $umkm_pic)
-    {
-        //
+    public function destroy( $umkm_pic)
+    {   
+        $umkm_pics = Umkm_pic::find($umkm_pic);
+        $fk_umkm_id=$umkm_pics['fk_umkm_id'];
+        
+        Umkm_pic::destroy($umkm_pic);
+
+        Alert::success('Success', 'Gambar UMKM Telah Dihapus');
+
+        return redirect()->route('umkm.show', ['umkm' => $fk_umkm_id]); 
     }
 }

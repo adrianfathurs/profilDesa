@@ -26,61 +26,38 @@
 </div>
 @else
 <!-- banner area -->
-<div>
-    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            @foreach($UmkmPics as $key => $item)
-            <div class="item {{$key == 0 ? 'active' : '' }}">
-                <img src="{{asset('imgUmkm/umkm_pic/'.$item->pics)}}" alt="..."
-                    style="width:max-content; margin:auto; height:360px">
-                <div class="container">
-                    <!-- banner caption -->
-                    <div class="carousel-caption slide-one">
-                        <!-- heading -->
-                        <h2 class="animated fadeInLeftBig"> {{$item->title}}</h2>
-                        @if (Auth::check())
-                        <h4>Tambah Gambar Wisata {{$umkm->judul}}</h4>
-                        <span>
-                            <button type="button" class="btn btn-warning btn-lg" data-toggle="modal"
-                                data-target="#exampleModalCenter">
-                                Tambah
-                            </button>
-                        </span>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-        <!-- form modal -->
-        @include('umkm.picModal')
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+<div class="fh5co-hero" style="height: 360px">
+    <div class="fh5co-overlay" style="height: 360px"></div>
+    <div class="fh5co-cover text-center" data-stellar-background-ratio="0.5"
+        style="background-image: url({{asset('imgUmkm/'.$umkm->photos1_umkm)}}); height: 360px">
     </div>
+    <!-- form modal -->
+     @include('umkm.picModal')
 </div>
 <!--/ banner end -->
 @endif
 <br>
 {{-- Main Card --}}
-<div class="fh5co-listing">
+<div class="fh5co-listing" style="margin-top:20px;">
     {{-- LIST Wisata --}}
-    <div class="container">
+    <div class="container ">
         <div class="row">
             <div class="col-md-12">
                 <div class="fh5co-blog animate-box">
-                    <a href="#galery" class="blog-bg"
-                        style="background-image: url({{asset('imgUmkm/'.$umkm->photos1_umkm)}});">
-                    </a>
                     <div class="blog-text">
+                    @if($UmkmPics->isEmpty())
+                       <!-- Tidak Tampil -->
+                       @else
+                        @if(Auth::check())
+                        <button type="button" title="Tambah Gambar" class="btn btn-warning btn-lg" data-toggle="modal"
+                                data-target="#exampleModalCenter">
+                                Tambah
+                        </button>
+                        @endif
+                        
+                        <!-- form modal -->
+                        @include('umkm.picModal')
+                    @endif
                         <span class="posted_on">{{$umkm->created_at}}</span>
                         <h3><a href="#">{{$umkm->judul}}</a></h3>
                         <p>{{$umkm->description_umkm}}</p>
@@ -109,7 +86,7 @@
                                     {{csrf_field()}}
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return false"
-                                        id="delete-umkm">
+                                        id="delete-umkm-form">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
@@ -130,17 +107,34 @@
         <div class="row">
             @forelse($UmkmPics as $item)
             <div class="col-md-4 col-sm-4 fh5co-item-wrap">
-                <a class="fh5co-listing-item" data-toggle="modal" data-target="#imageModal">
+                <a class="fh5co-listing-item openImageDialog" data-toggle="modal" data-target="#imageModal" data-src="{{asset('imgUmkm/umkm_pic/'.$item->pics)}}">
                     <img src="{{asset('imgUmkm/umkm_pic/'.$item->pics)}}" alt="{{ $item->title }}"
                         class="img-responsive">
+                        
                     <div class="fh5co-listing-copy">
                         <h2>{{ $item->title }}</h2>
                         <span class="icon">
                             <i class="glyphicon glyphicon-chevron-right"></i>
                         </span>
+                        
                     </div>
                 </a>
+             @if (Auth::check())
+                                <form class="delete-umkm-pic"
+                                    action="umkm_pic/deletePic/{{$item->id_umkm_pic}}"
+                                    method="POST">
+                                    {{csrf_field()}}
+                                    @method('DELETE')
+                                    <input type="hidden" name="id_umkm" value="{{$umkm->id_umkm}}"></input>
+                                    
+                                    <button style="float:right" type="submit" class="btn btn-danger" onclick="return false"
+                                    class="delete-umkm-pic">
+                                        <i class="fas fa-trash"></i><?php echo $item->id_umkm_pic?>
+                                    </button>
+                                </form>
+            @endif    
             </div>
+            
             <!-- image modal -->
             <div class="modal fade" id="imageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
                 style="margin-top: 45px">
@@ -154,7 +148,7 @@
                         </div>
                         <div class="modal-body">
                             <div class="mb-3">
-                                <img src="{{asset('imgUmkm/umkm_pic/'.$item->pics)}}" alt="{{ $item->title }}"
+                                <img id="modalImage" src="{{asset('imgUmkm/umkm_pic/'.$item->pics)}}" alt="{{ $item->title }}"
                                     class="img-responsive">
                             </div>
                         </div>
@@ -172,17 +166,36 @@
     </div>
 
 </div>
-
 @endsection
 
 @push('deleteConfirm-scripts')
 <script>
-    $('#delete-umkm').on('click', function (e) {
+    $('.delete-umkm-pic').on('click', function (e) {
         e.preventDefault();
         let id = $(this).data('id');
         Swal.fire({
-        title: 'Anda yakin menghapus wisata ?',
+        title: 'Anda yakin menghapus Foto UMKM ?',
         text: "Anda tidak dapat mengembalikan data otomatis !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+        $('.delete-umkm-pic').submit();
+        }
+        })
+        });
+</script>
+
+<script>
+    $('#delete-umkm-form').on('click', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        Swal.fire({
+        title: 'Anda yakin menghapus konten UMKM ?',
+        text: "Anda tidak dapat mengembalikan data otomatis dan Konten Beserta gambar akan ikut terhapus !",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -196,3 +209,19 @@
         });
 </script>
 @endpush
+
+@push('image-modal')
+<script>
+    $(document).on("click", ".openImageDialog", function () {
+    var myImageId = $(this).data('src');
+    var myTitle = $(this).data('title');
+    $(".modal-body #modalImage").attr("src", myImageId);
+    document.getElementById("exampleModalLabel").innerHTML = myTitle;
+    // $(".modal-header #exampleModalLabel").innderHTML= myTitle;
+    });
+
+</script>
+@endpush
+
+
+

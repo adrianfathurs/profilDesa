@@ -83,7 +83,7 @@
 		<div class="row">
 			@foreach($dataUmkm as $item)
 			<div class="col-md-4 col-sm-4 fh5co-item-wrap">
-				<a class="fh5co-listing-item">
+				<a class="fh5co-listing-item" href="{{ route('umkm.show',['umkm'=>$item->id_umkm]) }}">
 					<img src="{{asset('imgUmkm/'.$item->photos1_umkm)}}"
 						alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
 					<div class="fh5co-listing-copy">
