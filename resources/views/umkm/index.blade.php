@@ -50,10 +50,10 @@
                         </div>
                         <div class="col-md-3">
                             @if (Auth::check())
-                            <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
+                            <form class=" delete-umkm-form "action="route('umkm.destroy', ['umkm' => $umkm->id_umkm])" method="POST">
                                 {{csrf_field()}}
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger delete-umkm-form">Delete</button>
                             </form>
                             @endif
                         </div>
@@ -87,10 +87,10 @@
                         </div>
                         <div class="col-md-3">
                             @if (Auth::check())
-                            <form action="/umkm/deleteUmkm/{{$umkm->id_umkm}}" method="POST">
+                            <form class="delete-umkm-form" action="{{ route('umkm.destroy', ['umkm' => $umkm->id_umkm]) }}" method="POST">
                                 {{csrf_field()}}
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button  type="submit" class="btn btn-danger delete-umkm-form">Delete</button>
                             </form>
                             @endif
                         </div>
@@ -101,6 +101,31 @@
             } ?>
         </div>
         @endforeach
+        <div >
+            <center>{{ $dataUmkm->links() }}</center>
+        </div>
     </div>
 </div>
 @endsection
+
+@push('deleteConfirm-scripts')
+<script>
+    $('.delete-umkm-form').on('click', function (e) {
+        e.preventDefault();
+        let id = $(this).data('id');
+        Swal.fire({
+        title: 'Anda yakin menghapus konten UMKM ?',
+        text: "Anda tidak dapat mengembalikan data otomatis dan Konten Beserta gambar akan ikut terhapus !",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Hapus!'
+        }).then((result) => {
+        if (result.isConfirmed) {
+        $('.delete-umkm-form').submit();
+        }
+        })
+        });
+</script>
+@endpush

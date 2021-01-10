@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Umkm;
 use App\Umkm_pic;
 use RealRashid\SweetAlert\Facades\Alert;
+use File;
 class UmkmController extends Controller
 {
     /**
@@ -16,7 +17,7 @@ class UmkmController extends Controller
      */
     public function index()
     {
-         $dataUmkm=Umkm::latest()->get();
+         $dataUmkm=Umkm::latest()->paginate(3);
         return view('umkm.index',compact('dataUmkm'));
     }
 
@@ -97,6 +98,10 @@ class UmkmController extends Controller
      */
     public function destroy($id)
     {
+        //Delete file local
+        $gambar_pic=DB::table('umkms')->where('id_umkm',$id)->first();
+        FILE::delete('imgUmkm/'.$gambar_pic->photos1_umkm);
+        //Delete from on table umkms
         DB::table('umkms')->where('id_umkm', '=', $id)->delete();
         return redirect()->action([UmkmController::class, 'index']);
     }

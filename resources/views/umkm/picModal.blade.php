@@ -17,6 +17,7 @@
                     <div class="mb-3">
                         <label for="recipient-name" class="col-form-label">Gambar :</label>
                         <input type="file" class="form-control" id="pics" name="pics">
+                        <span class="text-danger">Upload Foto max : 2 mb</span>
                     </div>
             </div>
             <div class="modal-footer">

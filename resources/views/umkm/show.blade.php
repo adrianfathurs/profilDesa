@@ -80,13 +80,13 @@
                             </li>
                             @if (Auth::check())
                             <li>
-                                <form id="delete-umkm-form"
+                                <form class="delete-umkm-form"
                                     action="{{ route('umkm.destroy', ['umkm' => $umkm->id_umkm]) }}"
                                     method="POST">
                                     {{csrf_field()}}
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger" onclick="return false"
-                                        id="delete-umkm-form">
+                                        class="delete-umkm-form">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
@@ -120,18 +120,13 @@
                     </div>
                 </a>
              @if (Auth::check())
-                                <form class="delete-umkm-pic"
-                                    action="umkm_pic/deletePic/{{$item->id_umkm_pic}}"
-                                    method="POST">
+                                <a href="" class="delete-umkm-pic" data-id="{{$item->id_umkm_pic}}" data-inisial="{{$item->title}}" >
+                                    <form action="/umkm/umkm_pic/deletePic/{{$item->id_umkm_pic}}" id="delete{{$item->id_umkm_pic}}" METHOD="POST">
                                     {{csrf_field()}}
-                                    @method('DELETE')
-                                    <input type="hidden" name="id_umkm" value="{{$umkm->id_umkm}}"></input>
-                                    
-                                    <button style="float:right" type="submit" class="btn btn-danger" onclick="return false"
-                                    class="delete-umkm-pic">
-                                        <i class="fas fa-trash"></i><?php echo $item->id_umkm_pic?>
-                                    </button>
-                                </form>
+                                    @method('delete')    
+                                    </form>
+                                    <i class="fas fa-trash">{{$item->id_umkm_pic}}</i>
+                                </a>
             @endif    
             </div>
             
@@ -173,8 +168,10 @@
     $('.delete-umkm-pic').on('click', function (e) {
         e.preventDefault();
         let id = $(this).data('id');
+        let inisial = $(this).data('inisial');
+        console.log(id);
         Swal.fire({
-        title: 'Anda yakin menghapus Foto UMKM ?',
+        title: 'Anda yakin menghapus Foto UMKM '+inisial+'?',
         text: "Anda tidak dapat mengembalikan data otomatis !",
         icon: 'warning',
         showCancelButton: true,
@@ -183,14 +180,14 @@
         confirmButtonText: 'Hapus!'
         }).then((result) => {
         if (result.isConfirmed) {
-        $('.delete-umkm-pic').submit();
+        $(`#delete${id}`).submit();
         }
         })
         });
 </script>
 
 <script>
-    $('#delete-umkm-form').on('click', function (e) {
+    $('.delete-umkm-form').on('click', function (e) {
         e.preventDefault();
         let id = $(this).data('id');
         Swal.fire({
@@ -203,7 +200,7 @@
         confirmButtonText: 'Hapus!'
         }).then((result) => {
         if (result.isConfirmed) {
-        $('#delete-umkm-form').submit();
+        $('.delete-umkm-form').submit();
         }
         })
         });
